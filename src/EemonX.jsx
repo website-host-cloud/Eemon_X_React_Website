@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './EemonX.css';
-import noImage from '../assets/no.jpeg';
 
 /* ═══════════════════════════════════════════════════
    EEMON X — INFERNO EDITION v2
@@ -28,14 +27,6 @@ const EemonX = () => {
     return () => window.removeEventListener('mousemove', fn);
   }, []);
 
-  /* ══════════════════════════════════════════════════════════
-     CANVAS — Enhanced particle system:
-     • Floating ember sparks drifting upward
-     • Grid intersection glints (dot + cross + ring)
-     • Nebula wisps (large blurry moving clouds)
-     • Connection lines between close particles
-     • Shooting stars across the grid
-     ══════════════════════════════════════════════════════════ */
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -49,7 +40,6 @@ const EemonX = () => {
     resize();
     window.addEventListener('resize', resize);
 
-    /* ── Ember particle ── */
     class Particle {
       constructor() { this.reset(true); }
       reset(initial = false) {
@@ -80,7 +70,6 @@ const EemonX = () => {
       }
     }
 
-    /* ── Grid glint ── */
     const CELL = 52;
     class GridGlint {
       constructor() { this.reset(); }
@@ -102,12 +91,10 @@ const EemonX = () => {
         const a = Math.sin(p * Math.PI) * 0.7;
 
         if (this.type === 'dot') {
-          // Bright core dot
           ctx.beginPath();
           ctx.arc(this.cx, this.cy, 2.8, 0, Math.PI * 2);
           ctx.fillStyle = `rgba(249,115,22,${a})`;
           ctx.fill();
-          // Halo glow
           const g = ctx.createRadialGradient(this.cx, this.cy, 0, this.cx, this.cy, 14);
           g.addColorStop(0, `rgba(249,115,22,${a * 0.35})`);
           g.addColorStop(1, 'rgba(249,115,22,0)');
@@ -128,7 +115,6 @@ const EemonX = () => {
           ctx.stroke();
 
         } else {
-          // Expanding ring
           const maxR = 18 * p;
           ctx.beginPath();
           ctx.arc(this.cx, this.cy, maxR, 0, Math.PI * 2);
@@ -139,7 +125,6 @@ const EemonX = () => {
       }
     }
 
-    /* ── Nebula wisp (large, blurry, slow) ── */
     class Wisp {
       constructor() { this.reset(true); }
       reset(initial = false) {
@@ -171,11 +156,9 @@ const EemonX = () => {
       }
     }
 
-    /* ── Shooting star / grid tracer ── */
     class ShootingStar {
       constructor() { this.reset(); }
       reset() {
-        // Snap to a random grid row or col
         const useRow = Math.random() > 0.5;
         if (useRow) {
           const row = Math.floor(Math.random() * Math.floor(canvas.height / CELL)) * CELL;
@@ -193,7 +176,7 @@ const EemonX = () => {
         this.len    = Math.random() * 80 + 40;
         this.life   = 0;
         this.maxLife= Math.random() * 180 + 90;
-        this.delay  = Math.random() * 300; // stagger start
+        this.delay  = Math.random() * 300;
         this.active = false;
       }
       update() {
@@ -222,7 +205,6 @@ const EemonX = () => {
         ctx.strokeStyle = g;
         ctx.lineWidth   = 1;
         ctx.stroke();
-        // Leading dot
         ctx.beginPath();
         ctx.arc(this.x, this.y, 1.6, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(255,200,100,${a})`;
@@ -230,7 +212,6 @@ const EemonX = () => {
       }
     }
 
-    /* ── Connection lines ── */
     const connectParticles = (arr) => {
       const maxDist = 85;
       for (let i = 0; i < arr.length; i++) {
@@ -263,22 +244,11 @@ const EemonX = () => {
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      // Nebula wisps (background layer)
       wisps.forEach(w => { w.update(); w.draw(); });
-
-      // Grid glints
       glints.forEach(g => { g.update(); g.draw(); });
-
-      // Shooting stars
       stars.forEach(s => { s.update(); s.draw(); });
-
-      // Particle connections
       connectParticles(particles);
-
-      // Ember particles
       particles.forEach(p => { p.update(); p.draw(); });
-
       raf = requestAnimationFrame(animate);
     };
 
@@ -370,7 +340,7 @@ const EemonX = () => {
       name:"Praveen Kumar R", role:"Founder",
       roleDesc:"Strategic vision & startup growth architect.",
       email:"pklovetoracer@gmail.com", phone:"9345883673", initials:"PK",
-      image:noImage,
+      image:"/src/assets/no.jpeg",
       linkedin:"https://www.linkedin.com/", github:"https://github.com/",
       whatsapp:"919345883673",
       specialist:["Startup Strategy","Growth Hacking","Product Vision","Team Leadership"],
@@ -379,7 +349,7 @@ const EemonX = () => {
       name:"Vinuprasanth T", role:"CEO",
       roleDesc:"Orchestrating enterprise operations & leadership.",
       email:"lightningdragon6723@gmail.com", phone:"9344936502", initials:"VT",
-      image:"/no.jpeg",
+      image:"/src/assets/no.jpeg",
       linkedin:"https://www.linkedin.com/", github:"https://github.com/",
       whatsapp:"919344936502",
       specialist:["Operations","Enterprise Mgmt","Web Developer","Leadership"],
@@ -388,7 +358,7 @@ const EemonX = () => {
       name:"Kishore Kalash", role:"Co-Founder",
       roleDesc:"Security engineering & seamless UI ecosystems.",
       email:"kishoremonika87@gmail.com", phone:"9486802976", initials:"KK",
-      image:"/no.jpeg",
+      image:"/src/assets/no.jpeg",
       linkedin:"https://www.linkedin.com/", github:"https://github.com/",
       whatsapp:"919486802976",
       specialist:["Cyber Security","UI/UX Design","Penetration Testing","Frontend Dev", "Networking", "Adobe Desinger"],
@@ -397,7 +367,7 @@ const EemonX = () => {
       name:"Yogesh S V", role:"Director",
       roleDesc:"Client scaling and management architecture.",
       email:"vpys2005ys@gmail.com", phone:"9384413599", initials:"YS",
-      image:"/no.jpeg",
+      image:"/src/assets/no.jpeg",
       linkedin:"https://www.linkedin.com/", github:"https://github.com/",
       whatsapp:"919384413599",
       specialist:["Client Relations","Scale Architecture","UI/UX Design","Adobe Designer"],
@@ -570,7 +540,6 @@ const EemonX = () => {
 
       {/* ── ABOUT ── */}
       <section id="about" className="about-section">
-        {/* FIXED: visible watermark */}
         <div className="about-bg-word">ABOUT</div>
         <div className="about-content reveal">
           <div className="about-card">
