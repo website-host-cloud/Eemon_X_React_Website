@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './EemonX.css';
+import noImage from '../assets/no.jpeg';
 
 /* ═══════════════════════════════════════════════════
    EEMON X — INFERNO EDITION v2
@@ -369,7 +370,7 @@ const EemonX = () => {
       name:"Praveen Kumar R", role:"Founder",
       roleDesc:"Strategic vision & startup growth architect.",
       email:"pklovetoracer@gmail.com", phone:"9345883673", initials:"PK",
-      image:"src/assets/no.jpeg",
+      image:noImage,
       linkedin:"https://www.linkedin.com/", github:"https://github.com/",
       whatsapp:"919345883673",
       specialist:["Startup Strategy","Growth Hacking","Product Vision","Team Leadership"],
