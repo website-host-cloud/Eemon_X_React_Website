@@ -348,19 +348,17 @@ const EemonX = () => {
     {
       name:"Vinuprasanth T", role:"CEO",
       roleDesc:"Orchestrating enterprise operations & leadership.",
-      email:"lightningdragon6723@gmail.com", phone:"9344936502", initials:"VT",
+      email:"lightningdragon6723@gmail.com",  initials:"VT",
       image:"/src/assets/no.jpeg",
       linkedin:"https://www.linkedin.com/", github:"https://github.com/",
-      whatsapp:"919344936502",
       specialist:["Operations","Enterprise Mgmt","Web Developer","Leadership"],
     },
     {
       name:"Kishore Kalash", role:"Co-Founder",
       roleDesc:"Security engineering & seamless UI ecosystems.",
-      email:"kishoremonika87@gmail.com", phone:"9486802976", initials:"KK",
+      email:"kishoremonika87@gmail.com", initials:"KK",
       image:"/src/assets/no.jpeg",
       linkedin:"https://www.linkedin.com/", github:"https://github.com/",
-      whatsapp:"919486802976",
       specialist:["Cyber Security","UI/UX Design","Penetration Testing","Frontend Dev", "Networking", "Adobe Desinger"],
     },
     {
