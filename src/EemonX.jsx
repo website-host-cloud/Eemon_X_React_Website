@@ -730,7 +730,7 @@ const EemonX = () => {
             <h3>Headquarters</h3>
             <p className="hq-sub">Eemon X Innovations</p>
             {[
-              { icon:"📍", label:"Location",          content:"Department of Cyber Security\nNandha Engineering College\nErode, Tamil Nadu, India" },
+              { icon:"📍", label:"Location",          content:"Erode, Tamil Nadu, India" },
               { icon:"📧", label:"Official Comms",    href:"mailto:eemonx2025@gmail.com", content:"eemonx2025@gmail.com" },
               { icon:"🕒", label:"Hours of Operation",content:"Mon – Fri, 9:00 AM – 6:00 PM (IST)" },
             ].map((item, i) => (
